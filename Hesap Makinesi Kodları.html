@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Basit Hesap Makinesi</title>
+  <style>
+    body {
+      background: #a1aae3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 100;
+      font-family: Arial, sans-serif;
+    }
+    .calculator {
+      width: 300px;
+      background: #14371a;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgb(0, 0, 0);
+      padding: 2.5%;
+      box-sizing: border-box;
+    }
+    #display {
+      width: 100%;
+      height: 25px;
+      background: #111c21;
+      color: #fff;
+      font-size: 2rem;
+      text-align: right;
+      padding: 50px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 20%);
+      gap: 10px;
+    }
+    .buttons button {
+      background: #d8d7d7;
+      border: none;
+      border-radius: 20%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      aspect-ratio: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .buttons button.operation {
+      background: #ffab00;
+      color: #fff;
+    }
+    .buttons button.equals {
+      background: #0f9d58;
+      color: #fff;
+    }
+    .buttons button.clear {
+      background: #c01111;
+      color: #fff;
+    }
+    .buttons button.empty {
+      visibility: hidden;
+      background: none;
+      cursor: default;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" disabled />
+    <div class="buttons">
+      <button class="clear" onclick="clearDisplay()">C</button>
+      <button class="empty" disabled></button>
+      <button class="empty" disabled></button>
+      <button class="empty" disabled></button>
+      
+      
+
+      <button onclick="appendNumber('7')">7</button>
+      <button onclick="appendNumber('8')">8</button>
+      <button onclick="appendNumber('9')">9</button>
+      <button class="operation" onclick="chooseOperation('/')">÷</button>
+      
+
+      <button onclick="appendNumber('4')">4</button>
+      <button onclick="appendNumber('5')">5</button>
+      <button onclick="appendNumber('6')">6</button>
+      <button class="operation" onclick="chooseOperation('*')">×</button>
+      
+
+      <button onclick="appendNumber('1')">1</button>
+      <button onclick="appendNumber('2')">2</button>
+      <button onclick="appendNumber('3')">3</button>
+      <button class="operation" onclick="chooseOperation('-')">−</button>
+      
+
+      <button onclick="appendNumber('.')">.</button>
+      <button onclick="appendNumber('0')" style="grid-column: span;">0</button>
+      
+      <button class="equals" onclick="compute()">=</button>
+      <button class="operation" onclick="chooseOperation('+')">+</button>
+    </div>
+  </div>
+  <script>
+    let currentOperand = '';
+    let previousOperand = '';
+    let operation = null;
+
+    function appendNumber(number) {
+      if (number === '.' && currentOperand.includes('.')) return;
+      currentOperand = currentOperand.toString() + number.toString();
+      updateDisplay();
+    }
+
+    function chooseOperation(op) {
+      if (currentOperand === '') return;
+      if (previousOperand !== '') compute();
+      operation = op;
+      previousOperand = currentOperand;
+      currentOperand = '';
+    }
+
+    function compute() {
+      const prev = parseFloat(previousOperand);
+      const current = parseFloat(currentOperand);
+      if (isNaN(prev) || isNaN(current)) return;
+      let computation;
+      switch (operation) {
+        case '+': computation = prev + current; break;
+        case '-': computation = prev - current; break;
+        case '*': computation = prev * current; break;
+        case '/': computation = prev / current; break;
+        default: return;
+      }
+      currentOperand = computation;
+      operation = null;
+      previousOperand = '';
+      updateDisplay();
+    }
+
+    function clearDisplay() {
+      currentOperand = '';
+      previousOperand = '';
+      operation = null;
+      updateDisplay();
+    }
+
+    function updateDisplay() {
+      document.getElementById('display').value = currentOperand;
+    }
+  </script>
+</body>
+</html>

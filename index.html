@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolyo</title> <!-- Daha açıklayıcı bir başlık -->
+    <link rel="stylesheet" href="style.css"> <!-- CSS dosyasını bağlıyoruz -->
+</head>
+<body>
+    <header>
+        <h1>Port Noluyo Noluyo?</h1> <!-- Başlığı biraz değiştirdim -->
+    </header>
+
+    <main>
+        <section id="projects"> <!-- Projeler için bir bölüm -->
+            <h2>Yaptığım Bazı Şeyler</h2>
+            <p>Öğrenirken bir yandan da eğlenerek yaptığım bazı irili ufaklı projelerim. ^^</p>
+            <ul class="project-list"> <!-- Liste için bir sınıf ekledik -->
+                <li>
+                    <a href="./Hesap Makinesi Kodları.html" target="_blank">
+                        <img src="./Hesap makinesi.png" alt="Hesap Makinesi" class="project-thumbnail"> <!-- Inline stil yerine sınıf -->
+                        <span>Çalışan Hesap Makinem</span> <!-- Metni span içine aldık -->
+                    </a>
+                </li>
+                <li>
+                    <a href="./Cat Person.html" target="_blank">
+                        <img src="./I am a cat person.png" alt="kedi" class="project-thumbnail">
+                        <span>Kedi ile alakalı websitem</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./DGKO.html" target="_blank">
+                        <img src="./DG Davetiye.png" alt="Doğum Günü Davetiyesi" class="project-thumbnail">
+                        <span>Doğum Günü Davetiyesi</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./Welcome to My Website.html" target="_blank">
+                        <img src="./Tıklanılabilir Görselli Site.png" alt="Kedi resmi tıklanabilir" class="project-thumbnail">
+                        <span>Tıklanabilir Sitem</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./All the Animals.html" target="_blank">
+                        <img src="./AtA.png" alt="All The Animals" class="project-thumbnail">
+                        <span>Resim Eşleştirme Çalışmam</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <hr> <!-- İstersen bu çizgileri CSS ile daha şık hale getirebiliriz -->
+
+        <section id="contact"> <!-- İletişim için bir bölüm -->
+            <h2>İletişim</h2>
+            <p>İletişim için <a href="./İletişim.html" target="_blank">Tıklayınız</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Fatih - Tüm Hakları Saklıdır.</p> <!-- Basit bir alt bilgi -->
+    </footer>
+
+    <!-- JavaScript dosyası eklenecekse buraya eklenebilir -->
+    <!-- <script src="script.js"></script> -->
+</body>
+<style>
+    /* Genel Sayfa Stilleri */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0; /* Body margin'ini sıfırlayıp içeriğe padding vermek daha kontrollü olabilir */
+    padding: 0;
+    background-color: #003c02;
+    color: #ffffff;
+}
+
+/* Üst Bilgi (Header) Stilleri */
+header {
+    background: #cf7704;
+    color: #ffffff;
+    padding: 20px 0; /* Biraz daha boşluk */
+    text-align: center;
+    border-bottom: 3px solid #a05c03; /* Altına küçük bir çizgi */
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0; /* Header padding'i yeterli */
+    font-family: "Courier New", Courier, monospace;
+}
+
+/* Ana İçerik Alanı */
+main {
+    padding: 30px 20px; /* Üst/alt ve sağ/sol boşluklar */
+    max-width: 960px; /* İçeriğin çok genişlemesini engellemek için */
+    margin: 20px auto; /* Sayfayı ortalamak için */
+}
+
+section {
+    margin-bottom: 40px; /* Bölümler arası boşluk */
+}
+
+h2 {
+    font-family: "Courier New", Courier, monospace;
+    color: #ffc107; /* Başlık rengini biraz değiştirelim */
+    border-bottom: 1px solid #ffc107; /* Başlık altına ince çizgi */
+    padding-bottom: 5px;
+    margin-bottom: 20px; /* Başlık altı boşluk */
+}
+
+/* Link Stilleri */
+a {
+    color: #ff9100;
+    text-decoration: none; /* Alt çizgiyi kaldıralım */
+    transition: color 0.3s ease; /* Renk değişimine animasyon */
+}
+
+a:hover {
+    color: #ffc107; /* Üzerine gelince renk değişimi */
+    text-decoration: underline; /* Üzerine gelince alt çizgi */
+}
+
+/* Proje Listesi Stilleri */
+.project-list {
+    list-style: none; /* Liste işaretlerini kaldır */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Flexbox'ı etkinleştir */
+    flex-wrap: wrap; /* Öğeler sığmazsa alt satıra geçsin */
+    gap: 30px; /* Öğeler arası boşluk */
+    justify-content: center; /* Öğeleri yatayda ortala */
+}
+
+.project-list li {
+    background-color: rgba(255, 255, 255, 0.05); /* Hafif arka plan */
+    border-radius: 8px; /* Köşeleri yuvarlat */
+    padding: 15px;
+    text-align: center;
+    width: 220px; /* Liste elemanlarının genişliği */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover efekti için animasyon */
+}
+
+.project-list li:hover {
+    transform: translateY(-5px); /* Üzerine gelince hafif yukarı kalksın */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Gölge efekti */
+}
+
+.project-list a {
+    display: flex; /* Link içindekileri de flex ile yönetelim */
+    flex-direction: column; /* Resim üstte, metin altta */
+    align-items: center; /* İçerikleri ortala */
+    color: #ffffff; /* Liste içindeki link rengi beyaz olsun */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+}
+
+.project-list a:hover {
+    color: #ffc107; /* Üzerine gelince metin rengi değişsin */
+    text-decoration: none; /* Alt çizgi olmasın */
+}
+
+.project-thumbnail {
+    width: 100%; /* Kapsayıcıya göre genişlik */
+    max-width: 200px; /* Maksimum genişlik */
+    height: auto; /* Oranı koru */
+    display: block;
+    margin-bottom: 15px; /* Resim ile metin arası boşluk */
+    border-radius: 4px; /* Resim köşelerini hafif yuvarlat */
+    /* Eski img stilindeki padding-top ve margin: auto buraya gerek yok */
+}
+
+.project-list span {
+    font-weight: bold;
+}
+
+/* Yatay Çizgi (HR) Stili */
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 145, 0, 0), rgba(255, 145, 0, 0.75), rgba(255, 145, 0, 0)); /* Daha şık bir çizgi */
+    margin: 40px 0; /* Çizgi etrafındaki boşluk */
+}
+
+/* Alt Bilgi (Footer) Stilleri */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px; /* Üstündeki içerikle arasına boşluk */
+    background: #cf7704;
+    color: #ffffff;
+    border-top: 3px solid #a05c03; /* Üstüne küçük bir çizgi */
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Eski Genel img Kuralı (Artık daha spesifik kurallar var) */
+/* img { */
+    /* display: block; */ /* .project-thumbnail içinde var */
+    /* margin: 0 auto; */ /* .project-thumbnail içinde var */
+    /* padding-top: 40px;; */ /* Kaldırıldı */
+/* } */
+
+
+</style>
+</html>
